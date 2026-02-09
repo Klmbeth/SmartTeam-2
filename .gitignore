@@ -1,0 +1,14 @@
+# Environnement virtuel
+.venv/
+
+# PyCharm
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+
+# Media
+media/
+# created by virtualenv automatically
+

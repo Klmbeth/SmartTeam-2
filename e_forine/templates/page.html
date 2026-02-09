@@ -1,0 +1,20 @@
+<h1>{{ page.titre }}</h1>
+<p>{{ page.description }}</p>
+
+{% for section in sections %}
+  <section>
+    <h2>{{ section.titre }}</h2>
+    <p>{{ section.contenu }}</p>
+
+    {% for image in section.images.all %}
+      <img src="{{ image.image.url }}" width="300">
+    {% endfor %}
+
+    {% for sp in section.prestations.all %}
+      <div>
+        <strong>{{ sp.prestation.titre }}</strong>
+        <p>{{ sp.prestation.description }}</p>
+      </div>
+    {% endfor %}
+  </section>
+{% endfor %}

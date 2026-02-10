@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}FORINE{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">FORINE</div>
+
+    <nav>
+        <a href="{% url 'e_forine:accueil' %}">Accueil</a>
+        <a href="{% url 'e_forine:prestations' %}">Nos services</a>
+        <a href="{% url 'e_forine:a_propos' %}">À propos</a>
+        <a href="{% url 'e_forine:contact' %}">Contact</a>
+    </nav>
+
+    <div class="account">
+        <a href="{% url 'comptes:login' %}">Connexion</a>
+        <a href="{% url 'comptes:inscription' %}">Inscription</a>
+    </div>
+</header>
+
+{% block content %}{% endblock %}
+
+<footer class="footer">
+    <p>© 2026 FORINE — Tous droits réservés</p>
+</footer>
+
+</body>
+</html>

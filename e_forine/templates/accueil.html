@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Accueil | FORINE{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+    <h1>FORINE</h1>
+    <p>Votre partenaire de confiance pour des services professionnels modernes.</p>
+</section>
+
+<section class="services">
+    <h2>Nos prestations</h2>
+    <div class="services-grid">
+        {% for prestation in prestations %}
+            <div class="service-card">
+                {% if prestation.image %}
+                    <img src="{{ prestation.image.url }}" alt="{{ prestation.nom }}">
+                {% endif %}
+                <h3>{{ prestation.nom }}</h3>
+                <p>{{ prestation.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="formules">
+    <h2>Nos formules</h2>
+    <div class="formules-scroll">
+        {% for prestation in prestations %}
+            {% for formule in prestation.formules.all %}
+                {% if formule.active %}
+                    <div class="formule-card">
+                        <h3>{{ formule.nom }}</h3>
+                        <p>{{ formule.description }}</p>
+                        <strong>{{ formule.prix }} $</strong>
+                        <a href="{% url 'comptes:login' %}" class="btn">
+                            Réserver
+                        </a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

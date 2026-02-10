@@ -1,3 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
+def login_view(request):
+    return render(request, 'a_propos.html')
+
+def inscription(request):
+    return render(request, 'contact.html')
